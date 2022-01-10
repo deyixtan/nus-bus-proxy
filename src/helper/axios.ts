@@ -6,6 +6,8 @@ export const generateAxiosInstance = () => {
   const axiosConfig: AxiosRequestConfig = {
     baseURL: PROXY_BASE_URL,
     headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
       "User-Agent": PROXY_USER_AGENT!,
       Authorization: "Basic " + PROXY_AUTH_TOKEN!,
     },
