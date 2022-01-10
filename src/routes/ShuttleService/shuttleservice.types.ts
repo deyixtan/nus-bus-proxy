@@ -1,7 +1,7 @@
 export interface Shuttle {
   passengers: string;
   name: string;
-  etas: Array<any> // type TBC
+  etas: Array<any>; // type TBC
   nextArrivalTime: string;
   routeid: number;
   busstopcode: string;
