@@ -6,6 +6,7 @@ import BusStopsController from "../controllers/busstops.controllers";
 import CheckPointBusStopController from "../controllers/checkpointbusstop.controllers";
 import PickUpPointController from "../controllers/pickuppoint.controllers";
 import PublicityController from "../controllers/publicity.controllers";
+import RouteMinMaxTimeController from "../controllers/routeminmaxtime.controllers";
 import ServiceDescriptionController from "../controllers/servicedescription.controllers";
 import ShuttleServiceController from "../controllers/shuttleservice.controllers";
 import TickerTapesController from "../controllers/tickertapes.controllers";
@@ -30,6 +31,15 @@ router.get("/publicity", async (_req, res) => {
   const publicityController = new PublicityController(axiosInstance);
   const publicityResponse = await publicityController.getResponse();
   return res.send(publicityResponse);
+});
+
+router.get("/routeminmaxtime", async (req, res) => {
+  const { route_code } = req.query;
+  const routeMinMaxTimeController = new RouteMinMaxTimeController(axiosInstance);
+  const routeMinMaxTimeResponse = await routeMinMaxTimeController.getResponse(
+    String(route_code)
+  );
+  return res.send(routeMinMaxTimeResponse);
 });
 
 router.get("/servicedescription", async (_req, res) => {
