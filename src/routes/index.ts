@@ -1,6 +1,7 @@
 import express from "express";
 
 import AnnouncementController from "../controllers/announcements.controllers";
+import BusStopsController from "../controllers/busstops.controllers";
 import PublicityController from "../controllers/publicity.controllers";
 import { generateAxiosInstance } from "../helper/axios";
 
@@ -11,6 +12,12 @@ router.get("/announcements", async (_req, res) => {
   const announcementsController = new AnnouncementController(axiosInstance);
   const announcementsResponse = await announcementsController.getResponse();
   return res.send(announcementsResponse);
+});
+
+router.get("/busstops", async (_req, res) => {
+  const busStopsController = new BusStopsController(axiosInstance);
+  const busStopsResponse = await busStopsController.getResponse();
+  return res.send(busStopsResponse);
 });
 
 router.get("/publicity", async (_req, res) => {
