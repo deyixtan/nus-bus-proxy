@@ -12,7 +12,7 @@ class AnnouncementController {
   }
 
   @Get("/")
-  public async getResponse(): Promise<AnnouncementsResponse> {
+  public async getAnnouncements(): Promise<AnnouncementsResponse> {
     const response = await this.axiosInstance.get("/Announcements");
 
     // fix broken response

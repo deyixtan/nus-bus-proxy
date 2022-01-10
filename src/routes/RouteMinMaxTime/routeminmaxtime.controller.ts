@@ -12,7 +12,7 @@ class RouteMinMaxTimeController {
   }
 
   @Get("/")
-  public async getResponse(
+  public async getRouteMinMaxTime(
     @Query() route_code: string
   ): Promise<RouteMinMaxTimeResponse> {
     const config = { params: { route_code } };

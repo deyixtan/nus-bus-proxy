@@ -12,7 +12,7 @@ class ShuttleServiceController {
   }
 
   @Get("/")
-  public async getResponse(
+  public async getShuttleService(
     @Query() busstopname: string
   ): Promise<ShuttleServiceResponse> {
     const config = { params: { busstopname } };

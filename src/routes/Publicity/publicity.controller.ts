@@ -12,7 +12,7 @@ class PublicityController {
   }
 
   @Get("/")
-  public async getResponse(): Promise<PublicityResponse> {
+  public async getPublicity(): Promise<PublicityResponse> {
     const response = await this.axiosInstance.get("/publicity");
     return response.data;
   }

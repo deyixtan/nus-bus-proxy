@@ -12,7 +12,7 @@ class CheckPointBusStopController {
   }
 
   @Get("/")
-  public async getResponse(
+  public async getCheckPointBusStop(
     @Query() route_code: string
   ): Promise<CheckPointBusStopResult> {
     const config = { params: { route_code } };

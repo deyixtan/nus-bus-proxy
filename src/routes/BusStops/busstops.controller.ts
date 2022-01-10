@@ -12,7 +12,7 @@ class BusStopsController {
   }
 
   @Get("/")
-  public async getResponse(): Promise<BusStopsResponse> {
+  public async getBusStops(): Promise<BusStopsResponse> {
     const response = await this.axiosInstance.get("/BusStops");
     return response.data;
   }

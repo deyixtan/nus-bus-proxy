@@ -12,7 +12,7 @@ class ServiceDescriptionController {
   }
 
   @Get("/")
-  public async getResponse(): Promise<ServiceDescriptionResponse> {
+  public async getServiceDescription(): Promise<ServiceDescriptionResponse> {
     const response = await this.axiosInstance.get("/ServiceDescription");
     return response.data;
   }

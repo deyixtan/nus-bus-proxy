@@ -12,7 +12,7 @@ class TickerTapesController {
   }
 
   @Get("/")
-  public async getResponse(): Promise<TickerTapesResponse> {
+  public async getTickerTapes(): Promise<TickerTapesResponse> {
     const response = await this.axiosInstance.get("/TickerTapes");
 
     // fix broken response

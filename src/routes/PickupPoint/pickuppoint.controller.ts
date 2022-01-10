@@ -12,7 +12,7 @@ class PickUpPointController {
   }
 
   @Get("/")
-  public async getResponse(
+  public async getPickupPoint(
     @Query() route_code: string
   ): Promise<PickUpPointResponse> {
     const config = { params: { route_code } };

@@ -12,7 +12,7 @@ class ActiveBusController {
   }
 
   @Get("/")
-  public async getResponse(
+  public async getActiveBus(
     @Query() route_code: string
   ): Promise<ActiveBusResponse> {
     const config = { params: { route_code } };
