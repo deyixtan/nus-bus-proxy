@@ -3,6 +3,7 @@ import express from "express";
 import AnnouncementController from "../controllers/announcements.controllers";
 import BusStopsController from "../controllers/busstops.controllers";
 import PublicityController from "../controllers/publicity.controllers";
+import ServiceDescriptionController from "../controllers/servicedescription.controllers";
 import { generateAxiosInstance } from "../helper/axios";
 
 const router = express.Router();
@@ -24,6 +25,15 @@ router.get("/publicity", async (_req, res) => {
   const publicityController = new PublicityController(axiosInstance);
   const publicityResponse = await publicityController.getResponse();
   return res.send(publicityResponse);
+});
+
+router.get("/servicedescription", async (_req, res) => {
+  const serviceDescriptionController = new ServiceDescriptionController(
+    axiosInstance
+  );
+  const serviceDescriptionResponse =
+    await serviceDescriptionController.getResponse();
+  return res.send(serviceDescriptionResponse);
 });
 
 export default router;
