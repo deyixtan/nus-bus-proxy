@@ -4,6 +4,7 @@ import AnnouncementController from "../controllers/announcements.controllers";
 import BusStopsController from "../controllers/busstops.controllers";
 import PublicityController from "../controllers/publicity.controllers";
 import ServiceDescriptionController from "../controllers/servicedescription.controllers";
+import ShuttleServiceController from "../controllers/shuttleservice.controllers";
 import TickerTapesController from "../controllers/tickertapes.controllers";
 import { generateAxiosInstance } from "../helper/axios";
 
@@ -35,6 +36,15 @@ router.get("/servicedescription", async (_req, res) => {
   const serviceDescriptionResponse =
     await serviceDescriptionController.getResponse();
   return res.send(serviceDescriptionResponse);
+});
+
+router.get("/shuttleservice", async (req, res) => {
+  const { busstopname } = req.query;
+  const shuttleServiceController = new ShuttleServiceController(axiosInstance);
+  const shuttleServiceResponse = await shuttleServiceController.getResponse(
+    String(busstopname)
+  );
+  return res.send(shuttleServiceResponse);
 });
 
 router.get("/tickertapes", async (_req, res) => {
