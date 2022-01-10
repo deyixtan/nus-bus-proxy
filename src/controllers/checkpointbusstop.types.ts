@@ -1,17 +1,17 @@
-export interface CheckPointBusStop {
-    longitude: Number;
-    latitude: Number;
-    PointID: Number;
-    routeid: Number;
-    isbusstop?: Boolean;
-    busstopcode?: String;
-    busstoplongitude?: Number;
-    busstoplatitude?: Number;
+export interface CheckPoint {
+    longitude: number;
+    latitude: number;
+    PointID: string;
+    routeid: number;
+    isbusstop?: boolean;
+    busstopcode?: string;
+    busstoplongitude?: number;
+    busstoplatitude?: number;
   }
   
-  export interface CheckPointBusStopResponse {
+  export interface CheckPointBusStopResult {
     CheckPointBusStopResult: {
-      CheckPointBusStop: Array<CheckPointBusStop>;
+      CheckPoint: Array<CheckPoint>;
     };
   }
   

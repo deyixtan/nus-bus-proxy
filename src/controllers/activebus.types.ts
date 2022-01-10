@@ -1,15 +1,15 @@
 export interface ActiveBus {
-    TimeStamp: String;
-    ActiveBusCount: String;
+    TimeStamp: string;
+    ActiveBusCount: string;
     activebus: Array<ActiveBusInfo>;
   }
   
   export interface ActiveBusInfo {
-    vehplate: String;
-    lat: Number;
-    lng: Number;
-    speed: Number;
-    direction: Number;
+    vehplate: string;
+    lat: number;
+    lng: number;
+    speed: number;
+    direction: number;
   }
   
   export interface ActiveBusResponse {

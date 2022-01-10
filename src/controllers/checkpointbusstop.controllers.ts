@@ -1,7 +1,7 @@
 import { Get, Query, Route } from "tsoa";
 import { AxiosInstance } from "axios";
 
-import { CheckPointBusStopResponse } from "./CheckPointBusStop.types";
+import { CheckPointBusStopResult } from "./checkpointbusstop.types";
 
 @Route("/checkpointbusstop")
 class CheckPointBusStopController {
@@ -14,7 +14,7 @@ class CheckPointBusStopController {
   @Get("/")
   public async getResponse(
     @Query() route_code: string
-  ): Promise<CheckPointBusStopResponse> {
+  ): Promise<CheckPointBusStopResult> {
     const config = { params: { route_code } };
     const response = await this.axiosInstance.get("/CheckPointBusStop", config);
     return response.data;

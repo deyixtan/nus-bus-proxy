@@ -1,7 +1,7 @@
 import { Get, Query, Route } from "tsoa";
 import { AxiosInstance } from "axios";
 
-import { PickUpPointResponse } from "./PickUpPoint.types";
+import { PickUpPointResponse } from "./pickuppoint.types";
 
 @Route("/pickuppoint")
 class PickUpPointController {
