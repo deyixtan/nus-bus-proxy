@@ -1,15 +1,15 @@
 import express from "express";
-import ActiveBusController from "../controllers/activebus.controllers";
+import ActiveBusController from "./ActiveBus/activebus.controller";
 
-import AnnouncementController from "../controllers/announcements.controllers";
-import BusStopsController from "../controllers/busstops.controllers";
-import CheckPointBusStopController from "../controllers/checkpointbusstop.controllers";
-import PickUpPointController from "../controllers/pickuppoint.controllers";
-import PublicityController from "../controllers/publicity.controllers";
-import RouteMinMaxTimeController from "../controllers/routeminmaxtime.controllers";
-import ServiceDescriptionController from "../controllers/servicedescription.controllers";
-import ShuttleServiceController from "../controllers/shuttleservice.controllers";
-import TickerTapesController from "../controllers/tickertapes.controllers";
+import AnnouncementController from "./Announcements/announcements.controller";
+import BusStopsController from "./BusStops/busstops.controller";
+import CheckPointBusStopController from "./CheckPointBusStop/checkpointbusstop.controller";
+import PickUpPointController from "./PickupPoint/pickuppoint.controller";
+import PublicityController from "./Publicity/publicity.controller";
+import RouteMinMaxTimeController from "./RouteMinMaxTime/routeminmaxtime.controller";
+import ServiceDescriptionController from "./ServiceDescription/servicedescription.controller";
+import ShuttleServiceController from "./ShuttleService/shuttleservice.controller";
+import TickerTapesController from "./TickerTapes/tickertapes.controller";
 import { generateAxiosInstance } from "../helper/axios";
 
 const router = express.Router();
@@ -35,7 +35,9 @@ router.get("/publicity", async (_req, res) => {
 
 router.get("/routeminmaxtime", async (req, res) => {
   const { route_code } = req.query;
-  const routeMinMaxTimeController = new RouteMinMaxTimeController(axiosInstance);
+  const routeMinMaxTimeController = new RouteMinMaxTimeController(
+    axiosInstance
+  );
   const routeMinMaxTimeResponse = await routeMinMaxTimeController.getResponse(
     String(route_code)
   );
