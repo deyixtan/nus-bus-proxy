@@ -15,6 +15,15 @@ import { generateAxiosInstance } from "../helpers/axios";
 const router = express.Router();
 const axiosInstance = generateAxiosInstance();
 
+router.get("/activebus", async (req, res) => {
+  const { route_code } = req.query;
+  const activeBusController = new ActiveBusController(axiosInstance);
+  const activeBusResponse = await activeBusController.getActiveBus(
+    String(route_code)
+  );
+  return res.send(activeBusResponse);
+});
+
 router.get("/announcements", async (_req, res) => {
   const announcementsController = new AnnouncementController(axiosInstance);
   const announcementsResponse =
@@ -26,6 +35,25 @@ router.get("/busstops", async (_req, res) => {
   const busStopsController = new BusStopsController(axiosInstance);
   const busStopsResponse = await busStopsController.getBusStops();
   return res.send(busStopsResponse);
+});
+
+router.get("/checkpointbusstop", async (req, res) => {
+  const { route_code } = req.query;
+  const checkPointBusStopController = new CheckPointBusStopController(
+    axiosInstance
+  );
+  const checkPointBusStopResponse =
+    await checkPointBusStopController.getCheckPointBusStop(String(route_code));
+  return res.send(checkPointBusStopResponse);
+});
+
+router.get("/pickuppoint", async (req, res) => {
+  const { route_code } = req.query;
+  const pickUpPointController = new PickUpPointController(axiosInstance);
+  const pickUpPointResponse = await pickUpPointController.getPickupPoint(
+    String(route_code)
+  );
+  return res.send(pickUpPointResponse);
 });
 
 router.get("/publicity", async (_req, res) => {
@@ -65,34 +93,6 @@ router.get("/tickertapes", async (_req, res) => {
   const tickerTapesController = new TickerTapesController(axiosInstance);
   const tickerTapesResponse = await tickerTapesController.getTickerTapes();
   return res.send(tickerTapesResponse);
-});
-
-router.get("/pickuppoint", async (req, res) => {
-  const { route_code } = req.query;
-  const pickUpPointController = new PickUpPointController(axiosInstance);
-  const pickUpPointResponse = await pickUpPointController.getPickupPoint(
-    String(route_code)
-  );
-  return res.send(pickUpPointResponse);
-});
-
-router.get("/checkpointbusstop", async (req, res) => {
-  const { route_code } = req.query;
-  const checkPointBusStopController = new CheckPointBusStopController(
-    axiosInstance
-  );
-  const checkPointBusStopResponse =
-    await checkPointBusStopController.getCheckPointBusStop(String(route_code));
-  return res.send(checkPointBusStopResponse);
-});
-
-router.get("/activebus", async (req, res) => {
-  const { route_code } = req.query;
-  const activeBusController = new ActiveBusController(axiosInstance);
-  const activeBusResponse = await activeBusController.getActiveBus(
-    String(route_code)
-  );
-  return res.send(activeBusResponse);
 });
 
 export default router;
