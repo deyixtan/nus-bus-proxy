@@ -2,6 +2,7 @@ import express from "express";
 
 import AnnouncementController from "../controllers/announcements.controllers";
 import BusStopsController from "../controllers/busstops.controllers";
+import CheckPointBusStopController from "../controllers/checkpointbusstop.controllers";
 import PickUpPointController from "../controllers/pickuppoint.controllers";
 import PublicityController from "../controllers/publicity.controllers";
 import ServiceDescriptionController from "../controllers/servicedescription.controllers";
@@ -62,5 +63,14 @@ router.get("/pickuppoint", async (req, res) => {
   );
   return res.send(pickUpPointResponse);
 });
+
+router.get("/checkpointbusstop", async (req, res) => {
+    const { route_code } = req.query;
+    const checkPointBusStopController = new CheckPointBusStopController(axiosInstance);
+    const checkPointBusStopResponse = await checkPointBusStopController.getResponse(
+      String(route_code)
+    );
+    return res.send(checkPointBusStopResponse);
+  });
 
 export default router;
