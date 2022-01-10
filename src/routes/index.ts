@@ -75,13 +75,13 @@ router.get("/checkpointbusstop", async (req, res) => {
   return res.send(checkPointBusStopResponse);
 });
 
-// router.get("/activebus", async (req, res) => {
-//   const { route_code } = req.query;
-//   const activeBusController = new ActiveBusController(axiosInstance);
-//   const activeBusResponse = await activeBusController.getResponse(
-//     String(route_code)
-//   );
-//   return res.send(activeBusResponse);
-// });
+router.get("/activebus", async (req, res) => {
+  const { route_code } = req.query;
+  const activeBusController = new ActiveBusController(axiosInstance);
+  const activeBusResponse = await activeBusController.getResponse(
+    String(route_code)
+  );
+  return res.send(activeBusResponse);
+});
 
 export default router;
