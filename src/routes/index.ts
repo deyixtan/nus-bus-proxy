@@ -10,7 +10,7 @@ import RouteMinMaxTimeController from "./RouteMinMaxTime/routeminmaxtime.control
 import ServiceDescriptionController from "./ServiceDescription/servicedescription.controller";
 import ShuttleServiceController from "./ShuttleService/shuttleservice.controller";
 import TickerTapesController from "./TickerTapes/tickertapes.controller";
-import { generateAxiosInstance } from "../helper/axios";
+import { generateAxiosInstance } from "../helpers/axios";
 
 const router = express.Router();
 const axiosInstance = generateAxiosInstance();
