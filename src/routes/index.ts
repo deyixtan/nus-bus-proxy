@@ -1,6 +1,6 @@
 import express from "express";
-import ActiveBusController from "./ActiveBus/activebus.controller";
 
+import ActiveBusController from "./ActiveBus/activebus.controller";
 import AnnouncementController from "./Announcements/announcements.controller";
 import BusStopsController from "./BusStops/busstops.controller";
 import CheckPointBusStopController from "./CheckPointBusStop/checkpointbusstop.controller";

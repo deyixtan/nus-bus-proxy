@@ -1,5 +1,5 @@
 export interface PickUpPoint {
-  routeid: string;
+  routeid: number;
   pickupname: string;
   LongName: string;
   ShortName: string;

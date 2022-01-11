@@ -1,7 +1,16 @@
+export interface EtaInfo {
+  plate: string;
+  px: string;
+  ts: string;
+  jobid: number;
+  eta: number;
+  eta_s: number;
+}
+
 export interface Shuttle {
   passengers: string;
   name: string;
-  etas: Array<any>; // type TBC
+  _etas: Array<EtaInfo>;
   nextArrivalTime: string;
   routeid: number;
   busstopcode: string;
