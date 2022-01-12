@@ -1,0 +1,31 @@
+name: deploy
+on:
+  push:
+    branches:
+      - deploy
+jobs:
+  deploy-prod:
+    name: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build and push Docker to Heroku
+        uses: akhileshns/heroku-deploy@v3.12.12
+        with:
+          heroku_app_name: "nus-bus-proxy"
+          heroku_email: ${{ secrets.HEROKU_EMAIL }}
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          usedocker: true
+          docker_build_args: |
+            NODE_ENV
+            PORT
+            PROXY_BASE_URL
+            PROXY_USER_AGENT
+            PROXY_AUTH_TOKEN
+        env:
+          NODE_ENV: production
+          PORT: ${{ secrets.HD_PORT }}
+          PROXY_BASE_URL: ${{ secrets.HD_PROXY_BASE_URL }}
+          PROXY_USER_AGENT: ${{ secrets.HD_PROXY_USER_AGENT }}
+          PROXY_AUTH_TOKEN: ${{ secrets.HD_PROXY_AUTH_TOKEN }}
